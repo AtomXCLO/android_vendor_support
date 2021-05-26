@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2020 Havoc-OS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +19,17 @@ package com.ssos.support.preferences;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidx.preference.PreferenceViewHolder;
+import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Switch;
 
 import com.ssos.support.R;
+import androidx.core.content.res.TypedArrayUtils;
+import androidx.preference.PreferenceViewHolder;
+
+import com.ssos.support.util.VibrationUtils;
 
 /**
  * A custom preference that provides inline switch toggle. It has a mandatory field for title, and
@@ -36,21 +41,27 @@ public class MasterSwitchPreference extends TwoTargetPreference {
     private boolean mChecked;
     private boolean mEnableSwitch = true;
 
+    private final Context mContext;
+
     public MasterSwitchPreference(Context context, AttributeSet attrs,
                                   int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+
+        mContext = context;
     }
 
     public MasterSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        this(context, attrs, defStyleAttr, 0);
     }
 
     public MasterSwitchPreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, TypedArrayUtils.getAttr(context,
+                androidx.preference.R.attr.switchPreferenceStyle,
+                android.R.attr.switchPreferenceStyle));
     }
 
     public MasterSwitchPreference(Context context) {
-        super(context);
+        this(context, null);
     }
 
     @Override
@@ -75,6 +86,7 @@ public class MasterSwitchPreference extends TwoTargetPreference {
                     } else {
                         persistBoolean(mChecked);
                     }
+                    VibrationUtils.doHapticFeedback(mContext, VibrationEffect.EFFECT_CLICK);
                 }
             });
         }
