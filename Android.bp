@@ -9,14 +9,17 @@ android_library {
     srcs: ["src/**/*.java"],
 
     static_libs: [
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.annotation_annotation",
         "androidx.core_core",
+        "androidx.dynamicanimation_dynamicanimation",
         "androidx.preference_preference",
         "androidx.appcompat_appcompat",
         "androidx.recyclerview_recyclerview",
+        "androidx.viewpager_viewpager"
     ],
 
     resource_dirs: ["res"],
 
     min_sdk_version: "21",
-
 }
