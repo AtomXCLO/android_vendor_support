@@ -24,4 +24,6 @@
     <!-- Color Blend -->
     <dimen name="color_blend_preview_size">36dp</dimen>
 
+    <dimen name="two_target_min_width">72dp</dimen>
+
 </resources>
