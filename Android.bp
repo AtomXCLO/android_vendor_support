@@ -20,7 +20,8 @@ android_library {
         "androidx.appcompat_appcompat",
         "androidx.recyclerview_recyclerview",
         "androidx.viewpager_viewpager",
-        "zxing-core-1.7"
+        "zxing-core-1.7",
+        "material170_md3",
     ],
 
     resource_dirs: [
@@ -30,4 +31,26 @@ android_library {
     ],
 
     min_sdk_version: "21",
+}
+
+android_library_import  {
+    name: "material170_md3",
+    aars: ["libs/material170_md3.aar"],
+    sdk_version: "current",
+    min_sdk_version: "14",
+    static_libs: [
+        "androidx.appcompat_appcompat",
+        "androidx.cardview_cardview",
+        "androidx.coordinatorlayout_coordinatorlayout",
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.viewpager2_viewpager2",
+        "androidx.dynamicanimation_dynamicanimation",
+        "androidx.core_core",
+        "androidx.legacy_legacy-support-core-ui",
+        "androidx.legacy_legacy-support-core-utils",
+        "androidx.fragment_fragment",
+        "androidx.recyclerview_recyclerview",
+        "androidx.transition_transition",
+        "androidx.vectordrawable_vectordrawable",
+    ]
 }
