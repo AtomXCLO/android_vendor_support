@@ -48,4 +48,9 @@
     <string name="color_preview_end">End</string>
     <string name="color_preview_between">Between</string>
 
+    <string name="edit_hint">Value</string>
+    <string name="seek_value_edit_label">Set value</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
 </resources>
