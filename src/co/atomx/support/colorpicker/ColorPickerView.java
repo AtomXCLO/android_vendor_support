@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.arrow.support.colorpicker;
+package co.atomx.support.colorpicker;
 
 import android.content.Context;
 import android.graphics.Canvas;

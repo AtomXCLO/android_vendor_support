@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package co.atomx.support.preference;
 
 import android.content.Context;
 import android.util.AttributeSet;

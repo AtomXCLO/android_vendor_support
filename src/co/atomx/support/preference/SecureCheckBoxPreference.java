@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package co.atomx.support.preference;
 
 import android.content.Context;
 import android.provider.Settings;
@@ -22,16 +22,16 @@ import android.util.AttributeSet;
 
 import androidx.preference.CheckBoxPreference;
 
-public class SystemCheckBoxPreference extends CheckBoxPreference {
-    public SystemCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
+public class SecureCheckBoxPreference extends CheckBoxPreference {
+    public SecureCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public SystemCheckBoxPreference(Context context, AttributeSet attrs) {
+    public SecureCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SystemCheckBoxPreference(Context context) {
+    public SecureCheckBoxPreference(Context context) {
         super(context, null);
     }
 
@@ -43,7 +43,7 @@ public class SystemCheckBoxPreference extends CheckBoxPreference {
                 return true;
             }
 
-            Settings.System.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
+            Settings.Secure.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -55,7 +55,7 @@ public class SystemCheckBoxPreference extends CheckBoxPreference {
             return defaultReturnValue;
         }
 
-        return Settings.System.getInt(getContext().getContentResolver(),
+        return Settings.Secure.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 

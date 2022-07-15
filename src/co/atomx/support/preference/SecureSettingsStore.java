@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 AICP
+ * Copyright (C) 2018 CarbonROM
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +15,18 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package co.atomx.support.preference;
 
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;
 import android.provider.Settings;
 
-public class GlobalSettingsStore extends androidx.preference.PreferenceDataStore
+public class SecureSettingsStore extends androidx.preference.PreferenceDataStore
         implements PreferenceDataStore {
 
     private ContentResolver mContentResolver;
 
-    public GlobalSettingsStore(ContentResolver contentResolver) {
+    public SecureSettingsStore(ContentResolver contentResolver) {
         mContentResolver = contentResolver;
     }
 
@@ -34,19 +35,19 @@ public class GlobalSettingsStore extends androidx.preference.PreferenceDataStore
     }
 
     public float getFloat(String key, float defValue) {
-        return Settings.Global.getFloat(mContentResolver, key, defValue);
+        return Settings.Secure.getFloat(mContentResolver, key, defValue);
     }
 
     public int getInt(String key, int defValue) {
-        return Settings.Global.getInt(mContentResolver, key, defValue);
+        return Settings.Secure.getInt(mContentResolver, key, defValue);
     }
 
     public long getLong(String key, long defValue) {
-        return Settings.Global.getLong(mContentResolver, key, defValue);
+        return Settings.Secure.getLong(mContentResolver, key, defValue);
     }
 
     public String getString(String key, String defValue) {
-        String result = Settings.Global.getString(mContentResolver, key);
+        String result = Settings.Secure.getString(mContentResolver, key);
         return result == null ? defValue : result;
     }
 
@@ -55,19 +56,19 @@ public class GlobalSettingsStore extends androidx.preference.PreferenceDataStore
     }
 
     public void putFloat(String key, float value) {
-        Settings.Global.putFloat(mContentResolver, key, value);
+        Settings.Secure.putFloat(mContentResolver, key, value);
     }
 
     public void putInt(String key, int value) {
-        Settings.Global.putInt(mContentResolver, key, value);
+        Settings.Secure.putInt(mContentResolver, key, value);
     }
 
     public void putLong(String key, long value) {
-        Settings.Global.putLong(mContentResolver, key, value);
+        Settings.Secure.putLong(mContentResolver, key, value);
     }
 
     public void putString(String key, String value) {
-        Settings.Global.putString(mContentResolver, key, value);
+        Settings.Secure.putString(mContentResolver, key, value);
     }
 
 }

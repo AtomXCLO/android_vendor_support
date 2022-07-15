@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package co.atomx.support.preference;
 
 import android.content.Context;
 import androidx.preference.Preference;
@@ -22,7 +22,7 @@ import androidx.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.arrow.support.R;
+import co.atomx.support.R;
 
 public class TwoTargetPreference extends Preference {
 
